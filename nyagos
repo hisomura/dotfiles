@@ -1,0 +1,117 @@
+nyagos.setenv('HOME', nyagos.getenv('HOME'))
+addpath("C:/Tools/vim74-kaoriya-win64/")
+
+share.backup_prompt = nyagos.prompt
+nyagos.prompt = function(template)
+    template = '$e[31;1m$ $e[36;1m' .. nyagos.eval('pwd') .. "\n$e[31;1m> $e[37;1m"
+    return share.backup_prompt(template)
+end
+-- https://gist.github.com/nocd5/1add5bd3e0c6e73f9d0d
+
+share.home = nyagos.getenv("HOME") or nyagos.getenv("USERPROFILE")
+local chank, err = assert(loadfile(share.home .. "\\dotfiles\\nyagos_utils.lua"))
+if err then
+    print(err)
+else
+    chank()
+end
+
+nyagos.bindkey("C_R", share.peco_history)
+
+-- basic aliases
+alias {
+    ll = "ls -alo",
+    mv = "move",
+    dockerenv = share.docker_machine_env
+}
+
+-- git aliases
+alias{
+    g='git',
+
+    -- Branch (b)
+    gb='git branch',
+    gbc='git checkout -b',
+    gbl='git branch -v',
+    gbx='git branch -d',
+    gbm='git branch -m',
+    gbs='git show-branch',
+
+    -- Commit (c)
+    gc='git commit --verbose',
+    gca='git commit --verbose --all',
+    gcm='git commit --message',
+    gco='git checkout',
+    gcf='git commit --amend --reuse-message HEAD',
+    gcp='git cherry-pick --ff',
+    gcr='git revert',
+    gcs='git show',
+    gcl='git-commit-lost',
+
+    -- Data (d)
+    gd='git ls-files',
+    gdc='git ls-files --cached',
+    gdx='git ls-files --deleted',
+    gdm='git ls-files --modified',
+    gdu='git ls-files --other --exclude-standard',
+    gdk='git ls-files --killed',
+    gdi='git status --porcelain --short --ignored | sed -n "s/^!! //p"',
+
+    -- Fetch (f)
+    gf='git fetch',
+    gfc='git clone',
+    gfm='git pull',
+    gfr='git pull --rebase',
+
+    -- Grep (g)
+    gg='git grep',
+    ggi='git grep --ignore-case',
+    ggl='git grep --files-with-matches',
+    ggv='git grep --invert-match',
+    ggw='git grep --word-regexp',
+
+    -- Index (i)
+    gia='git add',
+    giap='git add --patch',
+    giu='git add --update',
+    gid='git diff --no-ext-diff --cached',
+    gidw='git diff --no-ext-diff --cached',
+    gir='git reset',
+    gix='git rm -r --cached',
+
+    -- Log (l)
+    -- gl='git log --topo-order --pretty=format:${_git_log_medium_format}',
+    gl='git log --topo-order',
+    gls='git log --topo-order --stat --pretty=format:"${_git_log_medium_format}"',
+    gld='git log --topo-order --stat --patch --full-diff --pretty=format:"${_git_log_medium_format}"',
+    glo='git log --topo-order --pretty=format:"${_git_log_oneline_format}"',
+    glg='git log --topo-order --all --graph --pretty=format:"${_git_log_oneline_format}"',
+    glb='git log --topo-order --pretty=format:"${_git_log_brief_format}"',
+    glc='git shortlog --summary --numbered',
+
+    -- Merge (m)
+    gm='git merge',
+
+    -- Push (p)
+    gp='git push',
+    gpf='git push --force',
+    gpt='git push --tags',
+    gpc='git push --set-upstream origin "$(git-branch-current 2> /dev/null)"',
+    gpp='git pull origin "$(git-branch-current 2> /dev/null)" && git push origin "$(git-branch-current 2> /dev/null)"',
+
+    -- Rebase (r)
+    gr='git rebase',
+    gra='git rebase --abort',
+    grc='git rebase --continue',
+    gri='git rebase --interactive',
+    grs='git rebase --skip',
+
+    -- Working Copy (w)
+    gws='git status --short',
+    gwd='git diff --no-ext-diff',
+    gwr='git reset --soft',
+    gwc='git clean -n',
+    gwx='git rm -r',
+}
+
+-- vim:set ft=lua: --
