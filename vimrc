@@ -24,7 +24,7 @@ silent! if plug#begin(s:plug_dir)
     Plug 'haya14busa/vim-asterisk'
     Plug 'haya14busa/incsearch.vim'
     
-    " Unite {{{2
+    " Unite
     Plug 'Shougo/unite.vim'
     Plug 'Shougo/vimproc.vim', { 'do': 'make' }
     Plug 'Shougo/neomru.vim'
@@ -75,6 +75,7 @@ set notitle                            " タイトルを非表示
 
 if !s:has_win_cui
     set nocursorline " カーソル行を強調表示しない
+    autocmd InsertEnter,InsertLeave * set list!
     autocmd InsertEnter,InsertLeave * set cursorline! " 挿入モードの時のみ、カーソル行をハイライトする
 endif
 
@@ -100,21 +101,27 @@ set virtualedit=block              " block:virtualモードで文字がないと
 
 set clipboard=
 if isdirectory(expand('~/.vim/tmp'))
-    set backupdir=~/vimfiles/tmp
-    set undodir=~/vimfiles/tmp
-    set directory=~/vimfiles/tmp
-elseif isdirectory(expand('~\vimfiles\tmp'))
     set backupdir=~/.vim/tmp
-    set undodir=~/.vim/tmp
     set directory=~/.vim/tmp
+    if exists('&undodir')
+        set undofile
+        set undodir=~/.vim/tmp
+    endif
+elseif isdirectory(expand('~\vimfiles\tmp'))
+    set backupdir=~/vimfiles/tmp
+    set directory=~/vimfiles/tmp
+    set undofile
+    set undodir=~/vimfiles/tmp
 else
     set nobackup
-    set noundofile
     set noswapfile
+    if exists('&undodir')
+        set noundofile
+    endif
 endif
 
 set wildmenu                       " コマンドライン補完するときに強化されたものを使う
-if (!has('win64') && !has('win32'))
+if s:has_win
     set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
 else
     set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.gz,*~
@@ -125,6 +132,14 @@ set history=1000
 " ------------------------------------------------------------------------------
 " Japanese
 " ------------------------------------------------------------------------------
+if exists('&imsearch')
+    set imsearch=0
+endif
+if exists('&iminsert')
+    set iminsert=0
+endif
+
+
 set encoding=utf-8
 set fileencoding=utf-8
 
@@ -205,15 +220,15 @@ inoremap <silent> jj <ESC>
 " ------------------------------------------------------------------------------
 " 特的のファイルタイプでインデント幅を変更
 autocmd BufNewFile,BufRead *.md set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd BufNewFile,BufRead *.yml set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.html set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
-" .nyagos を編集するときはファイルタイプをluaにする 
-autocmd BufNewFile,BufRead .nyagos setf lua
 
 " 自動で改行を除去
 " http://stackoverflow.com/questions/356126/how-can-you-automatically-remove-trailing-whitespace-in-vim
 autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre *.php :%s/\s\+$//e
+autocmd BufWritePre *.yml :%s/\s\+$//e
 
 " json のダブルクオートを非表示にするオプションを無効化
 autocmd Filetype json setl conceallevel=0
@@ -273,7 +288,7 @@ function! ToggleBinJump()
     endif
 
     let b:height = winheight(0)
-    let b:r_current_line = winline() 
+    let b:r_current_line = winline()
     let b:current_line = line(".")
     let b:first_line = b:current_line - b:r_current_line + 1
     let b:last_line  = b:current_line - b:r_current_line + b:height
@@ -301,7 +316,7 @@ endfunction
 
 if s:success_plug_loading == 1
     " colorscheme
-    if (!has('win64') && !has('win32')) || has('gui')
+    if !s:has_win_cui
         colorscheme hybrid
         au BufNewFile,BufRead *.php  colorscheme jellybeans
     endif
@@ -323,7 +338,7 @@ if s:success_plug_loading == 1
 
     " call unite#custom#profile('default', 'context', { 'unite_candidate_icon': '1'})
     " mappings
-    
+
     " 重要
     nnoremap <Space>m :<C-u>Unite<Space>file_mru -start-insert<CR>
     nnoremap <Space>G :<C-u>Unite grep:. -buffer-name=search-buffer -no-quit<CR>
@@ -331,8 +346,11 @@ if s:success_plug_loading == 1
     " nnoremap <Space>r :<C-u>Unite<Space>register<CR>
     nnoremap <Space>r :<C-u>Unite<Space>yankround<CR>
     nnoremap <Space>fr :<C-u>Unite file_rec/async<CR>
+    nnoremap <Space>fg :<C-u>Unite file_rec/git -start-insert<CR>
     nnoremap <Space>b :<C-u>Unite buffer -start-insert -no-quit<CR>
     nnoremap <Space>: :<C-u>Unite<Space>
+
+    nnoremap <Space>gt :<C-u>Unite<Space>giti<CR>
 
     " 要らないショートカット？
     " nnoremap <Space>b :<C-u>Unite buffer -quick-match<CR>
@@ -417,15 +435,17 @@ if s:success_plug_loading == 1
         let g:ag_prg=$HOME."/.local/bin/pt --column"
     elseif filereadable($GOPATH . "/bin/pt")
         let g:ag_prg=$GOPATH."/bin/pt --column"
+    elseif filereadable($GOPATH . "\\bin\\pt.exe")
+        let g:ag_prg=$GOPATH."\\bin\\pt.exe --column"
     endif
 
     let g:Align_xstrlen=3
     let g:syntastic_enable_signs=1
     let g:syntastic_auto_loc_list=2
-    cmap sw SudoWrite
-    cmap sr SudoRead
+    cabbrev sr SudoRead%
+    cabbrev sw SudoWrite%
 
     "" easy-align
     vmap <Enter> <Plug>(EasyAlign)
-    nmap ga <Plug>(EasyAlign) 
+    nmap ga <Plug>(EasyAlign)
 endif
