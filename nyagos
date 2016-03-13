@@ -82,12 +82,9 @@ alias{
     -- Log (l)
     -- gl='git log --topo-order --pretty=format:${_git_log_medium_format}',
     gl='git log --topo-order',
-    gls='git log --topo-order --stat --pretty=format:"${_git_log_medium_format}"',
-    gld='git log --topo-order --stat --patch --full-diff --pretty=format:"${_git_log_medium_format}"',
-    glo='git log --topo-order --pretty=format:"${_git_log_oneline_format}"',
-    glg='git log --topo-order --all --graph --pretty=format:"${_git_log_oneline_format}"',
-    glb='git log --topo-order --pretty=format:"${_git_log_brief_format}"',
-    glc='git shortlog --summary --numbered',
+    gls='git log --stat --decorate --find-renames',
+    gld='git log --topo-order --stat --patch --full-diff ',
+    glg='git log --graph --decorate --oneline',
 
     -- Merge (m)
     gm='git merge',
@@ -107,7 +104,7 @@ alias{
     grs='git rebase --skip',
 
     -- Working Copy (w)
-    gws='git status --short',
+    gws='git status --short --branch',
     gwd='git diff --no-ext-diff',
     gwr='git reset --soft',
     gwc='git clean -n',
