@@ -1,0 +1,10 @@
+/bin/*
+/certs/*
+/etc/*
+/logreport/*
+/logs/*
+/users/*
+*~
+*e
+*.swp
+*.pyc
