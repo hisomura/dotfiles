@@ -1,5 +1,6 @@
 nyagos.setenv('HOME', nyagos.getenv('HOME'))
-addpath("C:/Tools/vim74-kaoriya-win64/")
+addpath("C:\\Tools\\vim74-kaoriya-win64")
+addpath("C:\\Program Files\\Git\\cmd")
 
 share.backup_prompt = nyagos.prompt
 nyagos.prompt = function(template)
@@ -88,6 +89,9 @@ alias{
 
     -- Merge (m)
     gm='git merge',
+    gma='git merge --abort',
+    gms='git merge --squash',
+    gmt='git mergetool',
 
     -- Push (p)
     gp='git push',
