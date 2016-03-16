@@ -18,12 +18,13 @@ else
 end
 
 nyagos.bindkey("C_R", share.peco_history)
+nyagos.bindkey("C_J", share.peco_cd_history)
 
 -- basic aliases
 alias {
     ll = "ls -alo",
     mv = "move",
-    -- cd = share.peco_insert_cd_history,
+    cd = share.cd,
     dockerenv = share.docker_machine_env
 }
 
