@@ -1,8 +1,21 @@
+share.cd = function(arg)
+    r, err = nyagos.exec('__cd__ "' .. arg:gsub('\\', '/') .. '"')
+    share.insert_cd_history(args)
+    if (not share.UpdatePromptAlways) then
+        share.PROMPT = share.makePrompt()
+    end
+    return r, err
+end
+
+share.insert_cd_history = function(args)
+    nyagos.write('hello')
+end
+    
+
 share.peco_cd = function(this)
     local history_path = nyagos.getenv("APPDATA") .. '\\NYAOS_ORG\\nyagos.history'
     local command = nyagos.eval('type ' .. history_path .. ' | peco')
     if command ~= nil then
-        -- this.insert(command)
         return command
     else
         nyagos.prompt()
