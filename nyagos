@@ -23,6 +23,7 @@ nyagos.bindkey("C_R", share.peco_history)
 alias {
     ll = "ls -alo",
     mv = "move",
+    -- cd = share.peco_insert_cd_history,
     dockerenv = share.docker_machine_env
 }
 
