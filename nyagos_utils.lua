@@ -8,8 +8,7 @@ end
 share.cd = function(args)
     arg1 = ''
     if #args > 0 then
-        arg1 = args[1]:gsub('\\', '/') 
-        arg1 = '"' .. arg1 .. '"'
+        arg1 = '"' .. args[1]:gsub('\\', '/') .. '"'
     end
     r, err = nyagos.exec('__cd__ ' .. arg1)
     share.insert_cd_history()
@@ -18,22 +17,28 @@ share.cd = function(args)
 end
 
 share.peco_cd_history = function(this)
-    local cd_history_path = nyagos.getenv("APPDATA") .. '\\NYAOS_ORG\\nyagos.cd_history'
+    local cd_history_path = nyagos.pathjoin(nyagos.env.appdata, 'NYAOS_ORG\\nyagos.cd_history')
+    if not nyagos.access(cd_history_path, 0) then
+        print(": can not get nyagos.cd_history")
+        return nil -- TODO エラーを返したいけど返し方が不明
+    end
+
     local target_path = nyagos.eval('type ' .. cd_history_path .. ' | peco')
     if target_path ~= nil then
         r, err = nyagos.exec('__cd__ ' .. target_path)
+        share.insert_cd_history()
     end
     this:call("CLEAR_SCREEN")
-    -- エラーが出たらこの辺りで止めた方がいいかも
+
     return nil
 end
 
+-- 今後標準で搭載されるので消す予定
 share.peco_history = function(this)
-    local history_path = nyagos.getenv("APPDATA") .. '\\NYAOS_ORG\\nyagos.history'
-    local command = nyagos.eval('type ' .. history_path .. ' | peco')
+    local path = nyagos.pathjoin(nyagos.env.appdata, 'NYAOS_ORG\\nyagos.history')
+    local result = nyagos.eval('peco < ' .. path)
     this:call("CLEAR_SCREEN")
-
-    return command
+    return result
 end
 
 share.docker_machine_env = function (args)
