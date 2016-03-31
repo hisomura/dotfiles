@@ -70,6 +70,16 @@ share.peco_history = function(this)
     return result
 end
 
+
+share.unique_strings_no_order_change = function ()
+
+end
+
+share.unique_strings_order_by_count = function ()
+
+end
+
+
 share.docker_machine_env = function (args)
     if args[1] ~= nil then
         machine = args[1]
@@ -84,3 +94,4 @@ share.docker_machine_env = function (args)
         end
     end
 end
+
