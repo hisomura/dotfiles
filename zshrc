@@ -183,6 +183,7 @@ alias ggw='git grep --word-regexp'
 
 # Index (i)
 alias gia='git add'
+alias giap='git add --patch'
 alias giA='git add --patch'
 alias giu='git add --update'
 alias gid='git diff --no-ext-diff --cached'
@@ -204,9 +205,8 @@ alias glc='git shortlog --summary --numbered'
 
 # Merge (m)
 alias gm='git merge'
-alias gmC='git merge --no-commit'
-alias gmF='git merge --no-ff'
 alias gma='git merge --abort'
+alias gms='git mergetool'
 alias gmt='git mergetool'
 
 # Push (p)

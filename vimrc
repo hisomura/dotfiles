@@ -317,6 +317,7 @@ endfunction
 if s:success_plug_loading == 1
     " colorscheme
     if !s:has_win_cui
+        set background=dark
         colorscheme hybrid
         au BufNewFile,BufRead *.php  colorscheme jellybeans
     endif
