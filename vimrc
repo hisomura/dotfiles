@@ -238,6 +238,8 @@ autocmd Filetype json setl conceallevel=0
 " ------------------------------------------------------------------------------
 "
 source $VIMRUNTIME/macros/matchit.vim
+let b:match_words = "<if>:</if>"
+
 
 nnoremap <silent> ~ :call Tilde()<CR>
 function! Tilde()
@@ -397,7 +399,6 @@ if s:success_plug_loading == 1
     inoremap <expr><C-y> neocomplcache#close_popup()
     inoremap <expr><C-e> neocomplcache#cancel_popup()
 
-    let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
     " ------------------------------------------------------------------------------
     " easy motion
     " ------------------------------------------------------------------------------
@@ -440,9 +441,22 @@ if s:success_plug_loading == 1
         let g:ag_prg=$GOPATH."\\bin\\pt.exe --column"
     endif
 
+
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
+
     let g:Align_xstrlen=3
     let g:syntastic_enable_signs=1
-    let g:syntastic_auto_loc_list=2
+    " let g:syntastic_auto_loc_list=2
+    let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+    let g:syntastic_php_phpcs_args=' --standard=psr2'
+
     cabbrev sr SudoRead%
     cabbrev sw SudoWrite%
 
