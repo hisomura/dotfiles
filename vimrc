@@ -41,6 +41,8 @@ silent! if plug#begin(s:plug_dir)
 
     Plug 'rking/ag.vim'
     " Plug 'dyng/ctrlsf.vim'
+    
+    Plug 'editorconfig/editorconfig-vim'
 
     Plug 'terryma/vim-expand-region'  " 選択範囲拡張
     Plug 'junegunn/vim-easy-align'    " 整形ツール
@@ -222,6 +224,7 @@ inoremap <silent> jj <ESC>
 autocmd BufNewFile,BufRead *.md set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.yml set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.html set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd BufNewFile,BufRead *.json set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 
 " 自動で改行を除去
@@ -447,8 +450,8 @@ if s:success_plug_loading == 1
     set statusline+=%*
 
     let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1
-    let g:syntastic_check_on_open = 1
+    " let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 0
     let g:syntastic_check_on_wq = 0
 
     let g:Align_xstrlen=3
