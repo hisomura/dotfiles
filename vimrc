@@ -5,8 +5,13 @@
 
 let s:success_plug_loading = 0
 let s:has_win = has('win64') || has('win32')
-let s:has_win_cui = s:has_win && !has('gui')
+let s:color16 = s:has_win && !has('gui')
 let s:plug_dir = s:has_win ?  '~/vimfiles/plugged' :  '~/.vim/plugged'
+
+if $VIMCOLOR == 16
+    let s:color16 = 1
+endif
+
 silent! if plug#begin(s:plug_dir)
 
     Plug 'flazz/vim-colorschemes'     " カラースキーム集
@@ -75,7 +80,7 @@ set notitle                            " タイトルを非表示
 " basic
 " ------------------------------------------------------------------------------
 
-if !s:has_win_cui
+if !s:color16
     set nocursorline " カーソル行を強調表示しない
     autocmd InsertEnter,InsertLeave * set list!
     autocmd InsertEnter,InsertLeave * set cursorline! " 挿入モードの時のみ、カーソル行をハイライトする
@@ -236,6 +241,8 @@ autocmd BufWritePre *.yml :%s/\s\+$//e
 " json のダブルクオートを非表示にするオプションを無効化
 autocmd Filetype json setl conceallevel=0
 
+autocmd BufRead,BufNewFile .bashenv set syntax=sh
+
 " ------------------------------------------------------------------------------
 " others
 " ------------------------------------------------------------------------------
@@ -321,10 +328,13 @@ endfunction
 
 if s:success_plug_loading == 1
     " colorscheme
-    if !s:has_win_cui
+    if !s:color16
         set background=dark
         colorscheme hybrid
         au BufNewFile,BufRead *.php  colorscheme jellybeans
+    else
+        set background=dark
+        colorscheme monokai-chris
     endif
 
     " leader key
