@@ -2,7 +2,7 @@
 
 # bash と zsh のどちらでもディレクトリを取得する方法
 # http://qiita.com/yudoufu/items/48cb6fb71e5b498b2532
-# script_dir=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
+script_dir=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 
 DOT_FILES=(
  'bash_profile'
@@ -27,24 +27,25 @@ do
   elif [ -e $HOME/.$file ]
   then
     mv $HOME/.$file $HOME/.$file'_org'
+    echo old $file to .$file'_org'
   fi
-  ln -s $HOME/dotfiles/$file $HOME/.$file
+  ln -s $HOME/$script_dir/$file $HOME/.$file
 done
-
 
 # mkdir $HOME/.vim-backup
 # mkdir $HOME/.vim-dir
 # mkdir $HOME/.vim-undo
 
-# mkdir -p $HOME/.local/bin
-# mkdir -p $HOME/.local/opt
-#
-# cd $HOME/.local/opt
-# git clone --depth 1 https://github.com/junegunn/fzf.git
-# git clone --depth 1 https://github.com/junegunn/fzf.git
-# git clone https://github.com/b4b4r07/enhancd
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "~/.zprezto"
+
+mkdir -p $HOME/.local/bin
+mkdir -p $HOME/.local/opt
+cd $HOME/.local/opt
+git clone --depth 1 https://github.com/junegunn/fzf.git
+fzf/install
+git clone https://github.com/b4b4r07/enhancd
 
 # これをbash_profileとbashrcに追加する処理を追加する
 # if [ -z "${BASHENV_LOADED+x}" -a -f ~/.bashenv ]; then
-# 	. ~/.bashenv
+# ^ . ~/.bashenv
 # fi
