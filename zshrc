@@ -5,6 +5,7 @@ fi
 
 bindkey -v
 
+FZF_CTRL_R_OPTS='-e'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # enhancd config
