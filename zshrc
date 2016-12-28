@@ -12,7 +12,8 @@ FZF_CTRL_R_OPTS='-e'
 ENHANCD_FILTER=fzf; export ENHANCD_FILTER
 
 # tmux version < 1.8 なら下記を.bashrcに追加
-# export FZF_TMUX=0;
+# bash on windows でも動作しなくなったのでその場合も追加
+export FZF_TMUX=0
 
 source "${ZDOTDIR:-$HOME}/.local/opt/enhancd/init.sh"
 zle -N __enhancd::cd
