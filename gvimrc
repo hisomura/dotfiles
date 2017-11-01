@@ -22,3 +22,8 @@ nnoremap <space>gs.  :<C-U>source $MYGVIMRC<ENTER>
 " set fileformat=dos
 
 set mouse=a
+
+let g:gvimrc_local_finish=1
+source $VIMRUNTIME/delmenu.vim
+set langmenu=ja_jp.utf-8
+source $VIMRUNTIME/menu.vim
