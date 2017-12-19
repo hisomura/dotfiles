@@ -12,10 +12,17 @@ if $VIMCOLOR == 16
     let s:color16 = 1
 endif
 
+" vim-plugの自動インストール
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 silent! if plug#begin(s:plug_dir)
 
     Plug 'flazz/vim-colorschemes'     " カラースキーム集
-    Plug 'SudoEdit.vim'               " Sudo で保存
+    Plug 'chrisbra/SudoEdit.vim'      " Sudo で保存
 
     Plug 'osyo-manga/vim-over'        " 置換プレビュー
     Plug 'scrooloose/syntastic'       " シンタックスチェック
