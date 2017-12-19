@@ -11,7 +11,6 @@ DOT_FILES=(
  'zlogout'
  'zpreztorc'
  'zprofile'
- 'zshenv'
  'zshrc'
 )
 
@@ -29,6 +28,7 @@ do
 done
 
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "~/.zprezto"
+cp $HOME/.zprezto/runcoms/zshenv $HOME/.zshenv
 
 mkdir -p $HOME/.local/bin
 mkdir -p $HOME/.local/opt
