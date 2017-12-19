@@ -1,9 +1,5 @@
 #!/bin/sh
 
-# bash と zsh のどちらでもディレクトリを取得する方法
-# http://qiita.com/yudoufu/items/48cb6fb71e5b498b2532
-script_dir=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
-
 DOT_FILES=(
  'bash_profile'
  'bashenv'
@@ -29,12 +25,8 @@ do
     mv $HOME/.$file $HOME/.$file'_org'
     echo old $file to .$file'_org'
   fi
-  ln -s $HOME/$script_dir/$file $HOME/.$file
+  ln -s $HOME/dotfiles/$file $HOME/.$file
 done
-
-# mkdir $HOME/.vim-backup
-# mkdir $HOME/.vim-dir
-# mkdir $HOME/.vim-undo
 
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "~/.zprezto"
 
