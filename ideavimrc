@@ -28,7 +28,13 @@ vnoremap s :action AceJumpAction<CR>
 
 set virtualedit
 
-nnoremap \r :action Replace<CR>
-nnoremap \f :action Find<CR>
+" 潰したコマンドの代わりのコマンド
+nnoremap \r :<C-u>action Replace<CR>
+nnoremap \f :<C-u>action Find<CR>
 
 inoremap <C-p> <Esc>:action ParameterInfo<CR>a
+
+nnoremap <C-w>o :<C-u>action CloseAllEditorsButActive<CR>
+nnoremap g; :<C-u>action JumpToLastChange<CR>
+nnoremap g, :<C-u>action JumpToNextChange<CR>
+

@@ -1,0 +1,4 @@
+# vim: ft=sh
+# WSL用設定
+
+export DOCKER_HOST=localhost:2375

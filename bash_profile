@@ -12,3 +12,10 @@ alias tmux='tmux -2' #bashrc使わないからここに書く
 if [ -z "${BASHENV_LOADED+x}" -a -f ~/.bashenv ]; then
 	. ~/.bashenv
 fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+zsh
