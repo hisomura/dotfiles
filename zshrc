@@ -7,14 +7,17 @@ bindkey -v
 
 FZF_CTRL_R_OPTS='-e'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+bindkey '^F' fzf-file-widget #tmuxでprefixを潰さないための設定
 
 # enhancd config
 ENHANCD_FILTER=fzf; export ENHANCD_FILTER
 
-# tmux version < 1.8 なら下記を.bashrcに追加
-# bash on windows でも動作しなくなったのでその場合も追加
-export FZF_TMUX=0
-
 source "${ZDOTDIR:-$HOME}/.local/opt/enhancd/init.sh"
 zle -N __enhancd::cd
 bindkey '^J' __enhancd::cd
+
+# less
+export LESSCHARSET=utf-8
+
+# tmux
+export TERM=xterm-256color
