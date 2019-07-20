@@ -1,7 +1,0 @@
-export PATH="$HOME/.local/bin:$PATH"
-
-export LANG='ja_JP.utf-8'
-export EDITOR=vi
-export SHELL=`which zsh`
-
-export BASHENV_LOADED=1

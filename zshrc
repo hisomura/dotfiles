@@ -21,3 +21,7 @@ export LESSCHARSET=utf-8
 
 # tmux
 export TERM=xterm-256color
+
+# wsltty
+# https://github.com/mintty/wsltty/issues/136
+[ -z "$ZSH_VERSION" ] || export SHELL=$(which zsh)
