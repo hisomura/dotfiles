@@ -1,8 +1,6 @@
 #!/bin/sh
 
 DOT_FILES=(
- 'bash_profile'
- 'bashenv'
  'editrc'
  'inputrc'
  'tmux.conf'
@@ -37,7 +35,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git
 fzf/install
 git clone https://github.com/b4b4r07/enhancd
 
-# これをbash_profileとbashrcに追加する処理を追加する
-# if [ -z "${BASHENV_LOADED+x}" -a -f ~/.bashenv ]; then
-# ^ . ~/.bashenv
-# fi
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+chsh -s $(which zsh)
