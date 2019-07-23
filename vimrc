@@ -61,6 +61,7 @@ set cindent
 set tabstop=4 softtabstop=2 shiftwidth=2 expandtab
 set list                     " タブや改行を表示
 set listchars=tab:^\ ,trail:-,extends:<,precedes:> " 表示する文字
+:set fileencodings=utf-8,cp932,euc-jp,sjis
 
 set mouse=""                       " マウスモードオフ
 set lazyredraw                     " マクロ実行中に再描画しない
