@@ -1,3 +1,16 @@
+" https://github.com/JetBrains/ideavim#ideavim-tips-and-tricks
+set ideajoin
+set ideaput
+set number
+
+" ビジュアルモード時に選択した範囲を*で検索
+vnoremap * y <Esc>/<C-r>0<CR>
+
+" 潰したコマンドの代わりのコマンド
+nnoremap \r :<C-u>action Replace<CR>
+nnoremap \f :<C-u>action Find<CR>
+inoremap <C-p> <Esc>:action ParameterInfo<CR>a
+
 " cmap rw :action PublishGroup.Upload
 set ignorecase
 set smartcase
@@ -14,19 +27,9 @@ vnoremap x "_x
 vnoremap < <gv
 vnoremap > >gv
 
-set nu
 "ノーマルモード中にEnterで改行
 noremap <CR> i<CR><Esc>
-
-set virtualedit
-
-" 潰したコマンドの代わりのコマンド
-nnoremap \r :<C-u>action Replace<CR>
-nnoremap \f :<C-u>action Find<CR>
-
-inoremap <C-p> <Esc>:action ParameterInfo<CR>a
 
 nnoremap <C-w>o :<C-u>action CloseAllEditorsButActive<CR>
 nnoremap g; :<C-u>action JumpToLastChange<CR>
 nnoremap g, :<C-u>action JumpToNextChange<CR>
-
