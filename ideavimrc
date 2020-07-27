@@ -2,6 +2,7 @@
 set ideajoin
 set ideaput
 set number
+set surround
 
 " ビジュアルモード時に選択した範囲を*で検索
 vnoremap * y <Esc>/<C-r>0<CR>
