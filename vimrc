@@ -13,8 +13,9 @@ if plug#begin(s:plug_dir)
   Plug 'tyru/caw.vim'
   Plug 'osyo-manga/vim-anzu'
   Plug 'editorconfig/editorconfig-vim'
+  Plug 'nelstrom/vim-visual-star-search'
+  Plug 'junegunn/vim-easy-align'
 
-  Plug 'w0rp/ale'
   Plug 'Shougo/denite.nvim'
   Plug 'Shougo/neomru.vim'
 
@@ -50,7 +51,20 @@ set cmdheight=2                        " コマンドラインの高さ
 set showcmd                            " コマンドをステータス行に表示
 set title                              " タイトルを表示
 
-colorscheme molokai
+"colorscheme molokai
+
+" cousor config for wsl
+" https://github.com/microsoft/terminal/issues/4335
+" if &term =~ '^xterm'
+"   " normal mode
+"   let &t_EI .= "\<Esc>[0 q"
+"   " insert mode
+"   let &t_SI .= "\<Esc>[6 q"
+" endif
+" autocmd VimLeave * silent !echo -ne "\e[6 q"
+" autocmd VimEnter * silent !echo -ne "\e[0 q"
+
+
 
 " ------------------------------------------------------------------------------
 " basic
@@ -61,7 +75,7 @@ set cindent
 set tabstop=4 softtabstop=2 shiftwidth=2 expandtab
 set list                     " タブや改行を表示
 set listchars=tab:^\ ,trail:-,extends:<,precedes:> " 表示する文字
-:set fileencodings=utf-8,cp932,euc-jp,sjis
+set fileencodings=utf-8,cp932,euc-jp,sjis
 
 set mouse=""                       " マウスモードオフ
 set lazyredraw                     " マクロ実行中に再描画しない
@@ -123,5 +137,12 @@ if g:success_plug_loading
   call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
 
   nnoremap <Space>m :<C-u>Denite file_mru<CR>
+
+  " vim-easy-align
+  " Start interactive EasyAlign in visual mode (e.g. vipga)
+  xmap ga <Plug>(EasyAlign)
+  
+  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+  nmap ga <Plug>(EasyAlign)
 
 endif
