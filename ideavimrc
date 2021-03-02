@@ -1,8 +1,10 @@
-" https://github.com/JetBrains/ideavim#ideavim-tips-and-tricks
+" https://github.com/JetBrains/ideavim/wiki/Emulated-plugins
+set surround
 set ideajoin
 set ideaput
 set number
-set surround
+set highlightedyank
+set commentary
 
 " ビジュアルモード時に選択した範囲を*で検索
 vnoremap * y <Esc>/<C-r>0<CR>
@@ -15,14 +17,14 @@ nnoremap \f :<C-u>action Find<CR>
 set ignorecase
 set smartcase
 set hlsearch
- 
+
 "スクロール時に表示を10行確保
 set scrolloff=10
 
 "x キー削除でデフォルトレジスタに入れない
 nnoremap x "_x
 vnoremap x "_x
- 
+
 "選択範囲のインデントを連続して変更
 vnoremap < <gv
 vnoremap > >gv
