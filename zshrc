@@ -25,3 +25,9 @@ export TERM=xterm-256color
 # wsltty
 # https://github.com/mintty/wsltty/issues/136
 [ -z "$ZSH_VERSION" ] || export SHELL=$(which zsh)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "${ZDOTDIR:-$HOME}/google-cloud-sdk/path.zsh.inc" ]; then . "${ZDOTDIR:-$HOME}/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "${ZDOTDIR:-$HOME}/google-cloud-sdk/completion.zsh.inc" ]; then . "${ZDOTDIR:-$HOME}/google-cloud-sdk/completion.zsh.inc"; fi
