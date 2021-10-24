@@ -1,37 +1,55 @@
-" https://github.com/JetBrains/ideavim/wiki/Emulated-plugins
+""" Map leader to space ---------------------
+let mapleader=" "
+
+""" Plugins  --------------------------------
 set surround
-set ideajoin
-set ideaput
-set number
-set highlightedyank
+" set multiple-cursors
 set commentary
+" set easymotion
+set ReplaceWithRegister
+set textobj-indent
+set highlightedyank
 
-" ビジュアルモード時に選択した範囲を*で検索
-vnoremap * y <Esc>/<C-r>0<CR>
 
-" 潰したコマンドの代わりのコマンド
-nnoremap \r :<C-u>action Replace<CR>
-nnoremap \f :<C-u>action Find<CR>
+""" Plugin settings -------------------------
 
-" cmap rw :action PublishGroup.Upload
+""" Common settings -------------------------
+set showmode
 set ignorecase
 set smartcase
+set incsearch
 set hlsearch
-
-"スクロール時に表示を10行確保
 set scrolloff=10
 
-"x キー削除でデフォルトレジスタに入れない
+""" Idea specific settings ------------------
+set ideajoin
+set ideaput
+
+
+""" Mappings --------------------------------
+"map <leader>f <Plug>(easymotion-s)
+"map <leader>e <Plug>(easymotion-f)
+
+nmap <leader>o <Action>(FileStructurePopup)
+nmap <leader>r <Action>(Replace)
+nmap <leader>f <Action>(Find)
+nmap <leader>R <Action>(FindInPath)
+nmap <leader>F <Action>(ReplaceInPath)
+
+map <leader>P <Action>($Paste)
+
+nmap <C-w>o  <Action>(CloseAllEditorsButActive)
+nmap g; <Action>(JumpToLastChange)
+nmap g; <Action>(JumpToNextChange)
+
+
+""" Emulate vim-visualstar
+vnoremap * y <Esc>/<C-r>0<CR>
+
+""" Skip register with x
 nnoremap x "_x
 vnoremap x "_x
 
-"選択範囲のインデントを連続して変更
+" Reselect after indent
 vnoremap < <gv
 vnoremap > >gv
-
-"ノーマルモード中にEnterで改行
-noremap <CR> i<CR><Esc>
-
-nnoremap <C-w>o :<C-u>action CloseAllEditorsButActive<CR>
-nnoremap g; :<C-u>action JumpToLastChange<CR>
-nnoremap g, :<C-u>action JumpToNextChange<CR>
