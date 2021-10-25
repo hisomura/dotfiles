@@ -29,10 +29,10 @@ set ideaput
 """ Mappings --------------------------------
 """ Leader mappings
 nmap <leader>o <Action>(FileStructurePopup)
-nmap <leader>r <Action>(Replace)
 nmap <leader>f <Action>(Find)
-nmap <leader>R <Action>(FindInPath)
-nmap <leader>F <Action>(ReplaceInPath)
+nmap <leader>r <Action>(Replace)
+nmap <leader>F <Action>(FindInPath)
+nmap <leader>R <Action>(ReplaceInPath)
 nnoremap <leader>si :source ~/.ideavimrc<CR>
 
 """ Copy & Paste mappings
