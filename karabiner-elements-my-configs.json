@@ -2,7 +2,7 @@
   "title": "For hisomura",
   "rules": [
     {
-      "description": "RectangleでWin + ←↑→ を割り当て",
+      "description": "divvyでWindowsと同じような動作にする",
       "manipulators": [
         {
           "type": "basic",
@@ -15,6 +15,195 @@
           "to": [
             {
               "key_code": "right_arrow",
+              "modifiers": ["command", "control", "shift", "option"]
+            },
+            { "set_variable": { "name": "press_window_move_key", "value": 3 } }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name":  "press_window_move_key",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_arrow",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": ["command", "control", "shift", "option"]
+            },
+            { "set_variable": { "name": "press_window_move_key", "value": 1 } }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name":  "press_window_move_key",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_arrow",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": ["command", "control", "shift", "option"]
+            },
+            { "set_variable": { "name": "press_window_move_key", "value": 2 } }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name":  "press_window_move_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_arrow",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": ["command", "control", "shift", "option"]
+            },
+            { "set_variable": { "name": "press_window_move_key", "value": 3 } }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name":  "press_window_move_key",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": ["command", "control", "shift", "option"]
+            },
+            { "set_variable": { "name": "press_window_move_key", "value": 1 } }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name":  "press_window_move_key",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": ["command", "control", "shift", "option"]
+            },
+            { "set_variable": { "name": "press_window_move_key", "value": 3 } }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name":  "press_window_move_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": ["command", "control", "shift", "option"]
+            },
+            { "set_variable": { "name": "press_window_move_key", "value": 2 } }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name":  "press_window_move_key",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": ["command", "control", "shift", "option"]
+            },
+            { "set_variable": { "name": "press_window_move_key", "value": 1 } }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name":  "press_window_move_key",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "RectangleでWin + ←↑→ を割り当て",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
               "modifiers": ["control", "option"]
             }
           ]
