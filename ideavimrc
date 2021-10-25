@@ -27,18 +27,19 @@ set ideaput
 
 
 """ Mappings --------------------------------
-
+""" Leader mappings
 nmap <leader>o <Action>(FileStructurePopup)
 nmap <leader>r <Action>(Replace)
 nmap <leader>f <Action>(Find)
 nmap <leader>R <Action>(FindInPath)
 nmap <leader>F <Action>(ReplaceInPath)
-
-map <leader>\ <Action>($Paste)
 nnoremap <leader>si :source ~/.ideavimrc<CR>
 
-nmap <C-w>o  <Action>(CloseAllEditorsButActive)
+""" Copy & Paste mappings
+map <leader>\ <Action>($Paste)
+vmap <Enter> <Action>($Copy)
 
+""" Move mappings
 nmap g; <Action>(JumpToLastChange)
 nmap g, <Action>(JumpToNextChange)
 nmap gn <Action>(VcsShowNextChangeMarker)
@@ -47,6 +48,9 @@ map gf <Plug>(easymotion-f)
 map gF <Plug>(easymotion-F)
 map gw <Plug>(easymotion-w)
 map gW <Plug>(easymotion-W)
+
+""" Window mappings
+nmap <C-w>o  <Action>(CloseAllEditorsButActive)
 
 """ Emulate vim-visualstar
 vnoremap * y <Esc>/<C-r>0<CR>
