@@ -5,11 +5,12 @@
 #InstallKeybdHook
 #UseHook
 
-#InstallKeybdHook
-#UseHook
-
 ; The following line is a contribution of NTEmacs wiki http://www49.atwiki.jp/ntemacs/pages/20.html
 SetKeyDelay 0
+
+^+\::
+  Send +{Insert}
+  Return
 
 ; Applications you want to disable emacs-like keybindings
 ; (Please comment out applications you don't use)
