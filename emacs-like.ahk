@@ -254,10 +254,13 @@ use_default_key()
   If use_default_key()
     Send %A_ThisHotkey%
   Else
-    Send {ShiftDown}{END}{SHIFTUP}
+    Send ^+{End}
     Sleep 50
-    ; Send {Del}
-    Send ^x
+    Send {Del}
+    ; Send {ShiftDown}{END}{SHIFTUP}
+    ; Sleep 50
+    ; ; Send {Del}
+    ; Send ^x
   Return
 
 ;
