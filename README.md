@@ -37,3 +37,8 @@ OS
 | ------ | -------------------- |
 | Copy   | Ctrl+Insert , Ctrl+C |
 | Paste  | Shift+Insert, Ctrl+V |
+
+
+
+## Reference
+* https://dev.classmethod.jp/articles/keybind-ctrl-a-z/
