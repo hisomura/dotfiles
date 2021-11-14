@@ -13,10 +13,25 @@ bindkey '^F' fzf-file-widget #tmuxでprefixを潰さないための設定
 
 ### enhancd config
 ENHANCD_FILTER=fzf; export ENHANCD_FILTER
-
 source "${ZDOTDIR:-$HOME}/.local/opt/enhancd/init.sh"
-zle -N __enhancd::cd
-bindkey '^J' __enhancd::cd
+function __my-command::enhancd() {
+  __enhancd::cd
+  zle reset-prompt
+}
+
+zle -N __my-command::enhancd
+bindkey '^J' __my-command::enhancd
+
+### ghq + fzf
+function __ghq-list::cd() {
+  local destination_dir="$(ghq list -p | fzf)"
+  if [ -n "$destination_dir" ]; then
+    builtin cd $destination_dir
+  fi
+  zle reset-prompt
+}
+zle -N __ghq-list::cd
+bindkey '^o' __ghq-list::cd
 
 
 ### less
