@@ -39,6 +39,5 @@ OS
 | Paste  | Ctrl+Shift+Backslash, Ctrl+V |
 
 
-
 ## Reference
 * https://dev.classmethod.jp/articles/keybind-ctrl-a-z/
