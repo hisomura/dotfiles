@@ -36,7 +36,7 @@ OS
 | Action | Key                  |
 | ------ | -------------------- |
 | Copy   | Ctrl+Insert , Ctrl+C |
-| Paste  | Shift+Insert, Ctrl+V |
+| Paste  | Ctrl+Shift+Backslash, Ctrl+V |
 
 
 
