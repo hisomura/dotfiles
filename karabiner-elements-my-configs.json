@@ -233,7 +233,7 @@
       ]
     },
     {
-      "description": "Ctrl+'を押したときにかな入力と英数入力をトグルする",
+      "description": "Ctrl+' => toggle input source",
       "manipulators": [
         {
           "type": "basic",
@@ -270,7 +270,7 @@
       ]
     },
     {
-      "description": "左Commandを二回押すとcommand+control+shift+option+vキーを送る",
+      "description": "Double type left command => Cmd+Shift+Option+V",
       "manipulators": [
         {
           "type": "basic",
@@ -278,7 +278,7 @@
           "to": [
             {
               "key_code": "v",
-              "modifiers": ["command", "control", "shift", "option"]
+              "modifiers": ["command", "shift", "option"]
             },
             { "set_variable": { "name": "press_left_command_key", "value": 0 } }
           ],
