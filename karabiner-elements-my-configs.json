@@ -22,213 +22,30 @@
       ]
     },
     {
-      "description": "divvyでWindowsと同じような動作にする",
+      "description": "Ctrl+[ => Ctrl+[ + japanese_eisuu",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "right_arrow",
-            "modifiers": {
-              "mandatory": ["option"]
-            }
+            "key_code": "open_bracket",
+            "modifiers": { "mandatory": ["control"] }
           },
           "to": [
-            {
-              "key_code": "right_arrow",
-              "modifiers": ["command", "control", "shift", "option"]
-            },
-            { "set_variable": { "name": "press_window_move_key", "value": 3 } }
+            { "key_code": "open_bracket", "modifiers": ["control"] },
+            { "key_code": "japanese_eisuu" }
           ],
           "conditions": [
-            {
-              "type": "variable_if",
-              "name": "press_window_move_key",
-              "value": 0
-            }
+            { "type": "keyboard_type_if", "keyboard_types": ["ansi", "iso"] }
           ]
         },
         {
           "type": "basic",
-          "from": {
-            "key_code": "right_arrow",
-            "modifiers": {
-              "mandatory": ["option"]
-            }
-          },
+          "from": { "key_code": "close_bracket", "modifiers": { "mandatory": ["control"] } },
           "to": [
-            {
-              "key_code": "left_arrow",
-              "modifiers": ["command", "control", "shift", "option"]
-            },
-            { "set_variable": { "name": "press_window_move_key", "value": 1 } }
+            { "key_code": "close_bracket", "modifiers": ["control"] },
+            { "key_code": "japanese_eisuu" }
           ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "press_window_move_key",
-              "value": 3
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "right_arrow",
-            "modifiers": {
-              "mandatory": ["option"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "up_arrow",
-              "modifiers": ["command", "control", "shift", "option"]
-            },
-            { "set_variable": { "name": "press_window_move_key", "value": 2 } }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "press_window_move_key",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "right_arrow",
-            "modifiers": {
-              "mandatory": ["option"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_arrow",
-              "modifiers": ["command", "control", "shift", "option"]
-            },
-            { "set_variable": { "name": "press_window_move_key", "value": 3 } }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "press_window_move_key",
-              "value": 2
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "left_arrow",
-            "modifiers": {
-              "mandatory": ["option"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_arrow",
-              "modifiers": ["command", "control", "shift", "option"]
-            },
-            { "set_variable": { "name": "press_window_move_key", "value": 1 } }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "press_window_move_key",
-              "value": 0
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "left_arrow",
-            "modifiers": {
-              "mandatory": ["option"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_arrow",
-              "modifiers": ["command", "control", "shift", "option"]
-            },
-            { "set_variable": { "name": "press_window_move_key", "value": 3 } }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "press_window_move_key",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "left_arrow",
-            "modifiers": {
-              "mandatory": ["option"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "up_arrow",
-              "modifiers": ["command", "control", "shift", "option"]
-            },
-            { "set_variable": { "name": "press_window_move_key", "value": 2 } }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "press_window_move_key",
-              "value": 3
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "left_arrow",
-            "modifiers": {
-              "mandatory": ["option"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_arrow",
-              "modifiers": ["command", "control", "shift", "option"]
-            },
-            { "set_variable": { "name": "press_window_move_key", "value": 1 } }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "press_window_move_key",
-              "value": 2
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Ctrl+左クリックを押すとCMD+左クリックを送る",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "pointing_button": "button1",
-            "modifiers": {
-              "mandatory": ["left_control"]
-            }
-          },
-          "to": [
-            {
-              "pointing_button": "button1",
-              "modifiers": {
-                "mandatory": ["left_command"]
-              }
-            }
-          ]
+          "conditions": [{ "type": "keyboard_type_if", "keyboard_types": ["jis"] }]
         }
       ]
     },
@@ -414,7 +231,6 @@
         }
       ]
     },
-
     {
       "description": "Ctrl+R => Cmd+F (Find)",
       "manipulators": [
@@ -427,7 +243,7 @@
               "optional": ["any"]
             }
           },
-          "to": [ { "key_code": "f", "modifiers": ["left_command"] } ],
+          "to": [{ "key_code": "f", "modifiers": ["left_command"] }],
           "conditions": [
             {
               "type": "frontmost_application_unless",
@@ -635,6 +451,217 @@
                 "^com\\.jetbrains\\.*",
                 "^com\\.microsoft\\.VSCode"
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Move a window like Windows",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_arrow",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": ["command", "control", "shift", "option"]
+            },
+            { "set_variable": { "name": "press_window_move_key", "value": 3 } }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_window_move_key",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_arrow",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": ["command", "control", "shift", "option"]
+            },
+            { "set_variable": { "name": "press_window_move_key", "value": 1 } }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_window_move_key",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_arrow",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": ["command", "control", "shift", "option"]
+            },
+            { "set_variable": { "name": "press_window_move_key", "value": 2 } }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_window_move_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_arrow",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": ["command", "control", "shift", "option"]
+            },
+            { "set_variable": { "name": "press_window_move_key", "value": 3 } }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_window_move_key",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": ["command", "control", "shift", "option"]
+            },
+            { "set_variable": { "name": "press_window_move_key", "value": 1 } }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_window_move_key",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": ["command", "control", "shift", "option"]
+            },
+            { "set_variable": { "name": "press_window_move_key", "value": 3 } }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_window_move_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": ["command", "control", "shift", "option"]
+            },
+            { "set_variable": { "name": "press_window_move_key", "value": 2 } }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_window_move_key",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": ["command", "control", "shift", "option"]
+            },
+            { "set_variable": { "name": "press_window_move_key", "value": 1 } }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_window_move_key",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Ctrl+左クリックを押すとCMD+左クリックを送る",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button1",
+            "modifiers": {
+              "mandatory": ["left_control"]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button1",
+              "modifiers": {
+                "mandatory": ["left_command"]
+              }
             }
           ]
         }
