@@ -175,7 +175,7 @@
       "manipulators": [
         {
           "from": {
-            "key_code": "",
+            "key_code": "backslash",
             "modifiers": {
               "mandatory": ["left_control", "left_shift"],
               "optional": ["any"]
