@@ -218,7 +218,7 @@
           "from": {
             "pointing_button": "button1",
             "modifiers": {
-              "mandatory": ["control"]
+              "mandatory": ["left_control"]
             }
           },
           "to": [
@@ -240,7 +240,7 @@
           "from": {
             "key_code": "quote",
             "modifiers": {
-              "mandatory": ["control"]
+              "mandatory": ["left_control"]
             }
           },
           "to": [{ "key_code": "japanese_eisuu" }],
@@ -256,7 +256,7 @@
           "from": {
             "key_code": "quote",
             "modifiers": {
-              "mandatory": ["control"]
+              "mandatory": ["left_control"]
             }
           },
           "to": [{ "key_code": "japanese_kana" }],
@@ -328,7 +328,7 @@
           "from": {
             "key_code": "insert",
             "modifiers": {
-              "mandatory": ["control"],
+              "mandatory": ["left_control"],
               "optional": ["any"]
             }
           },
@@ -423,7 +423,7 @@
           "from": {
             "key_code": "r",
             "modifiers": {
-              "mandatory": ["control"],
+              "mandatory": ["left_control"],
               "optional": ["any"]
             }
           },
@@ -478,7 +478,7 @@
           "from": {
             "key_code": "c",
             "modifiers": {
-              "mandatory": ["control"],
+              "mandatory": ["left_control"],
               "optional": ["any"]
             }
           },
@@ -533,7 +533,7 @@
           "from": {
             "key_code": "v",
             "modifiers": {
-              "mandatory": ["control"],
+              "mandatory": ["left_control"],
               "optional": ["any"]
             }
           },
@@ -588,7 +588,7 @@
           "from": {
             "key_code": "x",
             "modifiers": {
-              "mandatory": ["control"],
+              "mandatory": ["left_control"],
               "optional": ["any"]
             }
           },
