@@ -43,10 +43,6 @@ nmap g; <Action>(JumpToLastChange)
 nmap g, <Action>(JumpToNextChange)
 nmap gn <Action>(VcsShowNextChangeMarker)
 nmap gp <Action>(VcsShowPrevChangeMarker)
-map gf <Plug>(easymotion-f)
-map gF <Plug>(easymotion-F)
-map gw <Plug>(easymotion-w)
-map gW <Plug>(easymotion-W)
 
 """ Window mappings
 nmap <C-w>o  <Action>(CloseAllEditorsButActive)
