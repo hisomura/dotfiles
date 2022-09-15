@@ -22,11 +22,11 @@ function __my-command::enhancd() {
 zle -N __my-command::enhancd
 bindkey '^J' __my-command::enhancd
 
-### ghq + fzf
+### jump project directories
 function __ghq-list::cd() {
-  local destination_dir="$(ghq list -p | fzf)"
-  if [ -n "$destination_dir" ]; then
-    builtin cd $destination_dir
+  local project_dir="$(cat <(ghq list -p) <(find ~/projects -maxdepth 1 -mindepth 1 -type d) | sed -e "s#$(echo ~)##g" | fzf)"
+  if [ -n ~/$project_dir ]; then
+    builtin cd ~/$project_dir
   fi
   zle reset-prompt
 }
