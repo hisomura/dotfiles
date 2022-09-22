@@ -24,9 +24,12 @@ bindkey '^J' __my-command::enhancd
 
 ### jump project directories
 function __ghq-list::cd() {
-  local project_dir="$(cat <(ghq list -p) <(find ~/projects -maxdepth 1 -mindepth 1 -type d) | sed -e "s#$(echo ~)##g" | fzf)"
-  if [ -n ~/$project_dir ]; then
-    builtin cd ~/$project_dir
+  local project_dirs=$(find ~/projects -maxdepth 1 -mindepth 1 -type d)
+  local ghq_dirs=$(ghq list -p)
+  local target_dir="$(echo $project_dirs$ghq_dirs | sed -e "s#$(echo ~)##g"| fzf)"
+
+  if [ -n ~/$target_dir ]; then
+    builtin cd ~/$target_dir
   fi
   zle reset-prompt
 }
