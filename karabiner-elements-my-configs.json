@@ -648,6 +648,26 @@
       ]
     },
     {
+      "description": "Option+UpArrow => Command+Ctrl+Shift+Option+DownArrow",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "up_arrow",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": ["command", "control", "shift", "option"]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Ctrl+左クリックを押すとCMD+左クリックを送る",
       "manipulators": [
         {
