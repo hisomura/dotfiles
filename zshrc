@@ -51,10 +51,9 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-### GCP
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f "${ZDOTDIR:-$HOME}/google-cloud-sdk/path.zsh.inc" ]; then . "${ZDOTDIR:-$HOME}/google-cloud-sdk/path.zsh.inc"; fi
+if [ -f '/Users/hisomura/.local/opt/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/hisomura/.local/opt/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f "${ZDOTDIR:-$HOME}/google-cloud-sdk/completion.zsh.inc" ]; then . "${ZDOTDIR:-$HOME}/google-cloud-sdk/completion.zsh.inc"; fi
+if [ -f '/Users/hisomura/.local/opt/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/hisomura/.local/opt/google-cloud-sdk/completion.zsh.inc'; fi
 
