@@ -5,6 +5,7 @@ DOT_FILES=(
  'inputrc'
  'tmux.conf'
  'vimrc'
+ 'ideavimrc'
  'zlogin'
  'zlogout'
  'zpreztorc'

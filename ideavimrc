@@ -25,6 +25,9 @@ set scrolloff=10
 set ideajoin
 set ideaput
 
+""" Mute bells
+set visualbell
+set noerrorbells
 
 """ Mappings --------------------------------
 """ Leader mappings
@@ -57,3 +60,5 @@ vnoremap x "_x
 " Reselect after indent
 vnoremap < <gv
 vnoremap > >gv
+
+
