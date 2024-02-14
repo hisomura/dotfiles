@@ -22,19 +22,21 @@ function __my-command::enhancd() {
 zle -N __my-command::enhancd
 bindkey '^J' __my-command::enhancd
 
-### jump project directories
-function __ghq-list::cd() {
-  local project_dirs=$(find ~/projects -maxdepth 1 -mindepth 1 -type d)
-  local ghq_dirs=$(ghq list -p)
-  local target_dir="$(echo $project_dirs$ghq_dirs | sed -e "s#$(echo ~)##g"| fzf)"
 
-  if [ -n ~/$target_dir ]; then
-    builtin cd ~/$target_dir
+# https://blog.pokutuna.com/entry/gcloud-switch-configurations
+### switching google project
+function gcloud-switch() {
+  local selected=$(
+    gcloud config configurations list --format='table[no-heading](is_active.yesno(yes="[x]",no="[_]"), name, properties.core.account, properties.core.project.yesno(no="(unset)"))' \
+      | fzf --select-1 --query="$1" \
+      | awk '{print $2}'
+  )
+  if [ -n "$selected" ]; then
+    gcloud config configurations activate $selected
   fi
-  zle reset-prompt
 }
-zle -N __ghq-list::cd
-bindkey '^o' __ghq-list::cd
+zle -N gcloud-switch
+bindkey '^g' gcloud-switch
 
 
 ### less
