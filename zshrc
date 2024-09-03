@@ -4,24 +4,19 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+### Vim mode
 bindkey -v
 
 FZF_CTRL_R_OPTS='-e'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 bindkey '^F' fzf-file-widget #tmuxでprefixを潰さないための設定
 
-
-### enhancd config
-ENHANCD_FILTER=fzf; export ENHANCD_FILTER
-source "${ZDOTDIR:-$HOME}/.local/opt/enhancd/init.sh"
-function __my-command::enhancd() {
-  __enhancd::cd
-  zle reset-prompt
-}
-
-zle -N __my-command::enhancd
-bindkey '^J' __my-command::enhancd
-
+### zoxide
+if [[ -z "$VSCODE_GIT_ASKPASS_NODE" ]]; then
+  eval "$(zoxide init zsh --cmd cd)"
+  zle -N __zoxide_zi
+  bindkey '^J' __zoxide_zi
+fi
 
 # https://blog.pokutuna.com/entry/gcloud-switch-configurations
 ### switching google project
@@ -51,4 +46,3 @@ export TERM=xterm-256color
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
