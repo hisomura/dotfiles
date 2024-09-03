@@ -29,14 +29,13 @@ git clone --recursive https://github.com/sorin-ionescu/prezto.git ~/.zprezto
 cp $HOME/.zprezto/runcoms/zshenv $HOME/.zshenv
 cp $HOME/.zprezto/runcoms/zprofile $HOME/.zprofile
 
+chsh -s $(which zsh)
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install fzf zoxide fd tmux git ght jq curl
+
 mkdir -p $HOME/.local/bin
 mkdir -p $HOME/.local/opt
-cd $HOME/.local/opt
-git clone --depth 1 https://github.com/junegunn/fzf.git
-fzf/install
-git clone https://github.com/b4b4r07/enhancd
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-chsh -s $(which zsh)
