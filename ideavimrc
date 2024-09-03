@@ -36,6 +36,7 @@ nmap <leader>f <Action>(Find)
 nmap <leader>r <Action>(Replace)
 nmap <leader>F <Action>(FindInPath)
 nmap <leader>R <Action>(ReplaceInPath)
+nmap <leader>e <Action>(RecentFiles)<CR>
 nnoremap <leader>si :source ~/.ideavimrc<CR>
 
 """ Copy & Paste mappings
@@ -46,6 +47,13 @@ nmap g; <Action>(JumpToLastChange)
 nmap g, <Action>(JumpToNextChange)
 nmap gn <Action>(VcsShowNextChangeMarker)
 nmap gp <Action>(VcsShowPrevChangeMarker)
+
+nmap gd <Action>(GotoDeclaration)
+nmap gD <Action>(GotoTypeDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gI <Action>(QuickImplementations)
+
+
 
 """ Window mappings
 nmap <C-w>o  <Action>(CloseAllEditorsButActive)
