@@ -1,6 +1,3 @@
-""" Map leader to space ---------------------
-let mapleader=" "
-
 """ Plugins  --------------------------------
 set surround
 " set multiple-cursors
@@ -29,8 +26,11 @@ set ideaput
 set visualbell
 set noerrorbells
 
+""" Map leader to space ---------------------
+let mapleader=" "
+
 """ Mappings --------------------------------
-""" Leader mappings
+""" Leader Mappings
 nmap <leader>o <Action>(FileStructurePopup)
 nmap <leader>f <Action>(Find)
 nmap <leader>r <Action>(Replace)
@@ -39,21 +39,31 @@ nmap <leader>R <Action>(ReplaceInPath)
 nmap <leader>e <Action>(RecentFiles)<CR>
 nnoremap <leader>si :source ~/.ideavimrc<CR>
 
-""" Copy & Paste mappings
+""" Copy & Paste Mappings
 vmap <Enter> <Action>($Copy)
+  workerIdleMemoryLimit: '1GB',
 
-""" Move mappings
+""" Move Mappings (Zed Like)
+"" Zed Like
+nmap gd <Action>(GotoDeclaration)
+nmap gY <Action>(GotoTypeDeclaration)
+nmap gI <Action>(GotoImplementation)
+nmap gA <Action>(FindUsages)
+
+nmap [c <Action>(VcsShowPrevChangeMarker)
+nmap ]c <Action>(VcsShowNextChangeMarker)
+
+"" Other
 nmap g; <Action>(JumpToLastChange)
 nmap g, <Action>(JumpToNextChange)
-nmap gn <Action>(VcsShowNextChangeMarker)
+nmap ,u <Action>(GotoSuperMethod)
+
+""" Other Mappings
+nmap cd <Action>(RenameElement)
+
+"" Not usufal
 nmap gp <Action>(VcsShowPrevChangeMarker)
-
-nmap gd <Action>(GotoDeclaration)
-nmap gD <Action>(GotoTypeDeclaration)
-nmap gi <Action>(GotoImplementation)
-nmap gI <Action>(QuickImplementations)
-
-
+nmap gn <Action>(VcsShowNextChangeMarker)
 
 """ Window mappings
 nmap <C-w>o  <Action>(CloseAllEditorsButActive)
@@ -68,5 +78,3 @@ vnoremap x "_x
 " Reselect after indent
 vnoremap < <gv
 vnoremap > >gv
-
-

@@ -32,7 +32,24 @@ cp $HOME/.zprezto/runcoms/zprofile $HOME/.zprofile
 chsh -s $(which zsh)
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install fzf zoxide fd tmux git ght jq curl
+brew install \
+    tmux \
+    fzf \
+    zoxide \
+    fd \
+    rg \
+    jq \
+    asdf \
+    git \
+    gh \
+    curl \
+    python \
+    mycli \
+    neovim \
+    lazygit \
+    luarocks 
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
 
 mkdir -p $HOME/.local/bin
 mkdir -p $HOME/.local/opt
