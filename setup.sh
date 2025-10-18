@@ -1,16 +1,22 @@
 #!/bin/sh
 
 DOT_FILES=(
+ 'asdfrc'
  'editrc'
+ 'gvimrc'
+ 'ideavimrc'
  'inputrc'
+ 'myclirc'
  'tmux.conf'
  'vimrc'
- 'ideavimrc'
+ 'vsvimrc'
  'zlogin'
  'zlogout'
  'zpreztorc'
  'zshrc'
+ 'zwslrc'
 )
+
 
 for file in ${DOT_FILES[@]}
 do
@@ -50,6 +56,9 @@ brew install \
     luarocks 
 brew tap hashicorp/tap
 brew install hashicorp/tap/terraform
+
+mkdir -p "${ASDF_DATA_DIR:-$HOME/.asdf}/completions"
+asdf completion zsh > "${ASDF_DATA_DIR:-$HOME/.asdf}/completions/_asdf"
 
 mkdir -p $HOME/.local/bin
 mkdir -p $HOME/.local/opt
