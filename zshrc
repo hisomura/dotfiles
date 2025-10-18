@@ -23,7 +23,7 @@ FZF_CTRL_R_OPTS='-e'
 bindkey '^F' fzf-file-widget #tmuxでprefixを潰さないための設定
 
 ### zoxide
-if [[ -z "$VSCODE_GIT_ASKPASS_NODE" && -z "$CLAUDECODE" ]]; then
+if [[ -z "$VSCODE_GIT_ASKPASS_NODE" && -z "$CLAUDECODE" && -z "$MARKER_JUNIE_TERMINAL" ]]; then
   eval "$(zoxide init zsh --cmd cd)"
   zle -N __zoxide_zi
   bindkey '^J' __zoxide_zi
