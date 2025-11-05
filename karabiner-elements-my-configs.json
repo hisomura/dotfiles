@@ -2,14 +2,14 @@
   "title": "For hisomura",
   "rules": [
     {
-      "description": "Right-Command+L to Lock Screen",
+      "description": "Right-Option+L to Lock Screen",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "l",
             "modifiers": {
-              "mandatory": ["right_command"]
+              "mandatory": ["right_option"]
             }
           },
           "to": [
