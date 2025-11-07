@@ -37,6 +37,7 @@ nmap <leader>r <Action>(Replace)
 nmap <leader>F <Action>(FindInPath)
 nmap <leader>R <Action>(ReplaceInPath)
 nmap <leader>e <Action>(RecentFiles)<CR>
+nmap <leader>p <Action>(RecentProjectListGroup)<CR>
 nnoremap <leader>si :source ~/.ideavimrc<CR>
 
 """ Copy & Paste Mappings
