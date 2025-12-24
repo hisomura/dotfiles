@@ -17,6 +17,10 @@ DOT_FILES=(
  'zwslrc'
 )
 
+ln -s ~/dotfiles/claude/agents ~/.claude/agents
+ln -s ~/dotfiles/claude/commands ~/.claude/commands
+ln -s ~/dotfiles/claude/skills ~/.claude/skills
+ln -s ~/dotfiles/claude/settings.json ~/.claude/settings.json
 
 for file in ${DOT_FILES[@]}
 do
