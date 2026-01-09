@@ -9,14 +9,13 @@ Before creating a commit, you must follow these steps:
 
 > **Note**: Identify the appropriate commands for formatting, linting, building, and testing from project configuration files (e.g., `package.json`, `build.gradle`, `Makefile`, `Justfile`) or project documentation (e.g., `README.md`, `CONTRIBUTING.md`).
 
-1. **Check current branch**: If you are on a main branch (`master`, `main`, or `develop`), create a new feature branch before proceeding. Use a descriptive branch name based on the changes (e.g., `feat/add-user-authentication`, `fix/login-error`).
-2. **Format and Lint**: Always format the code and fix linting issues. Ensure the code style adheres to the project's standards and no lint errors remain.
-3. **Build**: If the changes might affect the build integrity, run the build to verify it succeeds. Fix any errors.
-4. **Test**: If the changes affect business logic or existing tests, run relevant tests. Fix any failures.
-5. Use `git status`, `git diff`, and `git show` to understand the previous commit content and current state
-6. Group changes into logical units. If changes logically belong to the previous commit, include them using `git commit --amend`.
-7. Commit one group. Follow the commit message format described below.
-8. Repeat steps 5 through 7 until there are no more changes
+1. **Format and Lint**: Always format the code and fix linting issues. Ensure the code style adheres to the project's standards and no lint errors remain.
+2. **Build**: If the changes might affect the build integrity, run the build to verify it succeeds. Fix any errors.
+3. **Test**: If the changes affect business logic or existing tests, run relevant tests. Fix any failures.
+4. Use `git status`, `git diff`, and `git show` to understand the previous commit content and current state
+5. Group changes into logical units. If changes logically belong to the previous commit, include them using `git commit --amend`.
+6. Commit one group. Follow the commit message format described below.
+7. Repeat steps 5 through 7 until there are no more changes
 
 ## Commit Splitting Guidelines
 
