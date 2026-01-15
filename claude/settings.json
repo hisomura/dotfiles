@@ -29,7 +29,8 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebFetch(domain:developers.google.com)",
       "WebSearch"
-    ]
+    ],
+    "defaultMode": "plan"
   },
   "enabledPlugins": {
     "code-simplifier@claude-plugins-official": true,
