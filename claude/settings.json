@@ -31,6 +31,13 @@
       "WebSearch"
     ]
   },
+  "enabledPlugins": {
+    "code-simplifier@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "kotlin-lsp@claude-plugins-official": true
+  },
   "language": "日本語",
   "alwaysThinkingEnabled": true,
   "feedbackSurveyState": {
