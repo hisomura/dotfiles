@@ -10,10 +10,8 @@ DOT_FILES=(
  'tmux.conf'
  'vimrc'
  'vsvimrc'
- 'zlogin'
- 'zlogout'
- 'zpreztorc'
  'zshrc'
+ 'zshenv'
  'zwslrc'
 )
 
@@ -35,36 +33,10 @@ do
   ln -s $HOME/dotfiles/$file $HOME/.$file
 done
 
-git clone --recursive https://github.com/sorin-ionescu/prezto.git ~/.zprezto
-cp $HOME/.zprezto/runcoms/zshenv $HOME/.zshenv
-cp $HOME/.zprezto/runcoms/zprofile $HOME/.zprofile
-
 chsh -s $(which zsh)
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install \
-    tmux \
-    fzf \
-    zoxide \
-    fd \
-    rg \
-    jq \
-    git \
-    gh \
-    neovim \
-    curl \
-    python \
-    mycli \
-    luarocks \
-    starship \
-    zsh \
-    zsh-syntax-highlighting \
-    zsh-autosuggestions
-
-brew tap hashicorp/tap
-brew install hashicorp/tap/terraform
-
-brew install --cask amical
+brew bundle --file=$HOME/dotfiles/Brewfile
 
 
 mkdir -p $HOME/.local/bin
