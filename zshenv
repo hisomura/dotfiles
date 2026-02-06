@@ -1,0 +1,30 @@
+# ~/.zshenv
+
+[[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
+
+### Lang
+export LANG="${LANG:-ja_JP.UTF-8}"
+
+### pnpm
+export PNPM_HOME="${HOME}/Library/pnpm"
+
+### Editors / Pager / Browser
+export EDITOR="${EDITOR:-vim}"
+export VISUAL="${VISUAL:-vim}"
+export PAGER="${PAGER:-less}"
+export LESSCHARSET=utf-8
+[[ "$OSTYPE" == darwin* ]] && export BROWSER="${BROWSER:-open}"
+
+### PATH
+typeset -gU cdpath fpath mailpath path
+
+path=(
+  $HOME/{,s}bin(N)
+  $HOME/.local/bin(N-/)
+  $HOME/Library/Application Support/JetBrains/Toolbox/scripts(N-/)
+  $PNPM_HOME(N-/)
+  /opt/{homebrew,local}/{,s}bin(N)
+  /opt/homebrew/opt/mysql-client@8.4/bin(N-/)
+  /usr/local/{,s}bin(N)
+  $path
+)
