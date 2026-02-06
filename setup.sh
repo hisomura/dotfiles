@@ -49,20 +49,23 @@ brew install \
     fd \
     rg \
     jq \
-    asdf \
     git \
     gh \
+    neovim \
     curl \
     python \
     mycli \
-    neovim \
-    lazygit \
-    luarocks 
+    luarocks \
+    starship \
+    zsh \
+    zsh-syntax-highlighting \
+    zsh-autosuggestions
+
 brew tap hashicorp/tap
 brew install hashicorp/tap/terraform
 
-mkdir -p "${ASDF_DATA_DIR:-$HOME/.asdf}/completions"
-asdf completion zsh > "${ASDF_DATA_DIR:-$HOME/.asdf}/completions/_asdf"
+brew install --cask amical
+
 
 mkdir -p $HOME/.local/bin
 mkdir -p $HOME/.local/opt
