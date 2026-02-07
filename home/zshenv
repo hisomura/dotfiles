@@ -21,7 +21,7 @@ typeset -gU cdpath fpath mailpath path
 path=(
   $HOME/{,s}bin(N)
   $HOME/.local/bin(N-/)
-  $HOME/Library/Application Support/JetBrains/Toolbox/scripts(N-/)
+  "$HOME/Library/Application Support/JetBrains/Toolbox/scripts"(N-/)
   $PNPM_HOME(N-/)
   /opt/{homebrew,local}/{,s}bin(N)
   /opt/homebrew/opt/mysql-client@8.4/bin(N-/)
