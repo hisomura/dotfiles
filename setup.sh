@@ -14,6 +14,8 @@ ln -s ~/dotfiles/claude/agents ~/.claude/agents
 ln -s ~/dotfiles/claude/commands ~/.claude/commands
 ln -s ~/dotfiles/claude/skills ~/.claude/skills
 ln -s ~/dotfiles/claude/settings.json ~/.claude/settings.json
+
+ln -s ~/dotfiles/config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 ln -s ~/dotfiles/config/starship.toml ~/.config/starship.toml
 
 for file in ${DOT_FILES[@]}
@@ -26,7 +28,7 @@ do
     mv $HOME/.$file $HOME/.$file'_org'
     echo old $file to .$file'_org'
   fi
-  ln -s $HOME/dotfiles/$file $HOME/.$file
+  ln -s $HOME/dotfiles/home/$file $HOME/.$file
 done
 
 chsh -s $(which zsh)
