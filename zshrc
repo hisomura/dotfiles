@@ -27,9 +27,6 @@ fi
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'   # Case-insensitive match
 zstyle ':completion:*' menu select                      # Arrow-key selection
 
-# ──────────────── Key Bindings (Vim mode) ────────────────
-bindkey -v
-
 # ──────────────── Alias ────────────────
 alias ls='ls -G'
 alias ll='ls -al'
