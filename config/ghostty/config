@@ -1,0 +1,3 @@
+copy-on-select = clipboard
+font-feature = -dlig
+keybind = shift+enter=text:\x1b\r
