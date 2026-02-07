@@ -34,6 +34,13 @@ bindkey -v
 alias ll='ls -al'
 alias tf='terraform'
 
+# ──────────────── Functions ────────────────
+function tmpdir() {
+  mkdir -p tmp
+  echo '*' > tmp/.gitignore
+  touch tmp/memo.md
+}
+
 # ──────────────── fzf ────────────────
 source <(fzf --zsh)
 export FZF_CTRL_R_OPTS='-e'
