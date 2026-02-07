@@ -3,7 +3,6 @@
 DOT_FILES=(
  'asdfrc'
  'editrc'
- 'gvimrc'
  'ideavimrc'
  'inputrc'
  'myclirc'
