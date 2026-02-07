@@ -30,6 +30,10 @@ zstyle ':completion:*' menu select                      # Arrow-key selection
 # ──────────────── Key Bindings (Vim mode) ────────────────
 bindkey -v
 
+# ──────────────── Alias ────────────────
+alias ll='ls -al'
+alias tf='terraform'
+
 # ──────────────── fzf ────────────────
 source <(fzf --zsh)
 export FZF_CTRL_R_OPTS='-e'
