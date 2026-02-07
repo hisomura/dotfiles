@@ -72,6 +72,9 @@ function gcloud-switch() {
 zle -N gcloud-switch
 bindkey '^g' gcloud-switch
 
+# ──────────────── mise ────────────────
+eval "$(mise activate zsh)"
+
 # ──────────────── TERM ────────────────
 export TERM=xterm-256color
 
