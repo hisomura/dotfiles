@@ -20,6 +20,7 @@ brew "git"
 brew "gh"
 brew "neovim"
 brew "luarocks"
+brew "mise"
 brew "python"
 
 # Data & JSON
