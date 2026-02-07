@@ -15,6 +15,7 @@ ln -s ~/dotfiles/claude/commands ~/.claude/commands
 ln -s ~/dotfiles/claude/skills ~/.claude/skills
 ln -s ~/dotfiles/claude/settings.json ~/.claude/settings.json
 
+ln -s ~/dotfiles/config/ghostty/config ~/.config/ghostty/config
 ln -s ~/dotfiles/config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 ln -s ~/dotfiles/config/starship.toml ~/.config/starship.toml
 
