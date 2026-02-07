@@ -42,7 +42,7 @@ function tmpdir() {
 # ──────────────── fzf ────────────────
 source <(fzf --zsh)
 export FZF_CTRL_R_OPTS='-e'
-bindkey '^F' fzf-file-widget  # Avoid collision with tmux prefix
+# bindkey '^F' fzf-file-widget  # Avoid collision with tmux prefix
 
 # ──────────────── zoxide ────────────────
 if [[ -z "$VSCODE_GIT_ASKPASS_NODE" && -z "$CLAUDECODE" && -z "$MARKER_JUNIE_TERMINAL" ]]; then
