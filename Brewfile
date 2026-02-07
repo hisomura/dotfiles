@@ -18,6 +18,7 @@ brew "rename"
 # Editor & Development
 brew "git"
 brew "gh"
+brew "pinact"
 brew "neovim"
 brew "luarocks"
 brew "mise"
@@ -42,4 +43,3 @@ brew "curl"
 
 # Cask
 cask "amical"
-cask "pinact"
