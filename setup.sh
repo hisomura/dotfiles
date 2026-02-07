@@ -1,17 +1,13 @@
 #!/bin/sh
 
 DOT_FILES=(
- 'asdfrc'
- 'editrc'
  'ideavimrc'
  'inputrc'
  'myclirc'
  'tmux.conf'
  'vimrc'
- 'vsvimrc'
  'zshrc'
  'zshenv'
- 'zwslrc'
 )
 
 ln -s ~/dotfiles/claude/agents ~/.claude/agents
