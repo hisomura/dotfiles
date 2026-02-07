@@ -31,6 +31,7 @@ zstyle ':completion:*' menu select                      # Arrow-key selection
 bindkey -v
 
 # ──────────────── Alias ────────────────
+alias ls='ls -G'
 alias ll='ls -al'
 alias tf='terraform'
 
