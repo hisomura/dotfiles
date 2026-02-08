@@ -47,8 +47,12 @@ export FZF_CTRL_R_OPTS='-e'
 # ──────────────── zoxide ────────────────
 if [[ -z "$VSCODE_GIT_ASKPASS_NODE" && -z "$CLAUDECODE" && -z "$MARKER_JUNIE_TERMINAL" ]]; then
   eval "$(zoxide init zsh --cmd cd)"
-  zle -N __zoxide_zi
-  bindkey '^J' __zoxide_zi
+  function __zoxide_zi_widget() {
+    __zoxide_zi
+    zle reset-prompt
+  }
+  zle -N __zoxide_zi_widget
+  bindkey '^J' __zoxide_zi_widget
 fi
 
 # ──────────────── Project Switcher ────────────────
