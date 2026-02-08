@@ -98,8 +98,6 @@ function gcloud-switch() {
   )
   [[ -n "$selected" ]] && gcloud config configurations activate "$selected"
 }
-zle -N gcloud-switch
-bindkey '^g' gcloud-switch
 
 # ──────────────── mise ────────────────
 eval "$(mise activate zsh)"
