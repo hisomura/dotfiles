@@ -12,6 +12,9 @@ setopt HIST_VERIFY
 setopt SHARE_HISTORY
 setopt EXTENDED_HISTORY
 
+# ──────────────── Keymap ────────────────
+bindkey -e
+
 # ──────────────── Completion ────────────────
 autoload -Uz compinit
 # Run full check only once per day; use cache otherwise
