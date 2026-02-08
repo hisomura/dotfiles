@@ -25,6 +25,7 @@ brew "mise"
 brew "python"
 
 # Data & JSON
+brew "bat"
 brew "jq"
 
 # Database
