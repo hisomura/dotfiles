@@ -51,6 +51,31 @@ if [[ -z "$VSCODE_GIT_ASKPASS_NODE" && -z "$CLAUDECODE" && -z "$MARKER_JUNIE_TER
   bindkey '^J' __zoxide_zi
 fi
 
+# ──────────────── Project Switcher ────────────────
+function __project-switch() {
+  local selected
+  selected=$(
+    {
+      fd --type d --max-depth 1 --min-depth 1 . ~/projects
+      echo "$HOME/dotfiles"
+    } | sed "s|^$HOME/|~/|" \
+      | fzf \
+        --scheme=path \
+        --cycle --keep-right \
+        --bind=ctrl-z:ignore,btab:up,tab:down \
+        --height=45% --layout=reverse --border=sharp --info=inline \
+        --prompt="project> " \
+        --preview 'dir={}; CLICOLOR_FORCE=1 command -p ls -CGp ${~dir}' \
+        --preview-window=down,30%,sharp
+  )
+  [[ -z "$selected" ]] && { zle reset-prompt; return; }
+  selected="${selected/#\~/$HOME}"
+  cd "$selected"
+  zle reset-prompt
+}
+zle -N __project-switch
+bindkey '^O' __project-switch
+
 # ──────────────── Google Cloud SDK ────────────────
 GOOGLE_CLOUD_SDK_PATH="${HOME}/.local/opt/google-cloud-sdk"
 [[ -f "${GOOGLE_CLOUD_SDK_PATH}/path.zsh.inc" ]]       && source "${GOOGLE_CLOUD_SDK_PATH}/path.zsh.inc"
