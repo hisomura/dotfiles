@@ -1,6 +1,7 @@
 #!/bin/sh
 
 DOT_FILES=(
+ 'bashrc'
  'ideavimrc'
  'inputrc'
  'myclirc'
