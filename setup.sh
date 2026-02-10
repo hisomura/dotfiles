@@ -17,6 +17,7 @@ ln -s ~/dotfiles/claude/settings.json ~/.claude/settings.json
 
 ln -s ~/dotfiles/config/ghostty/config ~/.config/ghostty/config
 ln -s ~/dotfiles/config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+ln -s ~/dotfiles/config/mise/config.toml ~/.config/mise/config.toml
 ln -s ~/dotfiles/config/starship.toml ~/.config/starship.toml
 
 for file in ${DOT_FILES[@]}
