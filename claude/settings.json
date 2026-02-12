@@ -33,7 +33,9 @@
       "WebFetch(domain:medium.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebFetch(domain:developers.google.com)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(git *)",
+      "Bash(wc *)"
     ],
     "deny": [
       "Bash(git -C:*)"
