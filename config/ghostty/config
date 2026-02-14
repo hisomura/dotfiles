@@ -1,4 +1,4 @@
 copy-on-select = clipboard
 keybind = shift+enter=text:\x1b\r
 font-family = "HackGen Console NF"
-theme = Github Dark Default
+theme = One Double Dark
