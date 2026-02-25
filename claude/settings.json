@@ -28,17 +28,16 @@
       "Bash(mkdir:*)",
       "Bash(terraform fmt:*)",
       "SlashCommand(/commit)",
-      "WebFetch(domain:github.com)",
-      "WebFetch(domain:code.claude.com)",
-      "WebFetch(domain:medium.com)",
-      "WebFetch(domain:raw.githubusercontent.com)",
-      "WebFetch(domain:developers.google.com)",
+      "WebFetch",
       "WebSearch",
+      "Write(/*)",
       "Bash(git *)",
-      "Bash(wc *)"
+      "Bash(wc *)",
+      "Bash(cloud projects get-iam-policy *)"
     ],
     "deny": [
-      "Bash(git -C:*)"
+      "Bash(git -C:*)",
+      "Bash(find *)"
     ],
     "ask": [
       "Bash(rm:*)",
@@ -51,14 +50,12 @@
   },
   "enabledPlugins": {
     "code-simplifier@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true,
-    "pyright-lsp@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true,
-    "kotlin-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true
   },
   "language": "日本語",
   "alwaysThinkingEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754031273259
-  }
+  },
+  "skipDangerousModePermissionPrompt": true
 }
