@@ -9,6 +9,7 @@
       "Bash(gh run view:*)",
       "Bash(gh run list:*)",
       "Bash(gh workflow list:*)",
+      "Bash(gh repo view:*)",
       "Bash(git add:*)",
       "Bash(git branch:*)",
       "Bash(git checkout:*)",
@@ -27,7 +28,6 @@
       "Bash(ls:*)",
       "Bash(mkdir:*)",
       "Bash(terraform fmt:*)",
-      "SlashCommand(/commit)",
       "WebFetch",
       "WebSearch",
       "Write(/*)",
@@ -46,7 +46,7 @@
       "Bash(git push --force-with-lease:*)",
       "Bash(git reset:*)"
     ],
-    "defaultMode": "plan"
+    "defaultMode": "auto"
   },
   "enabledPlugins": {
     "code-simplifier@claude-plugins-official": true,
@@ -57,5 +57,5 @@
   "feedbackSurveyState": {
     "lastShownTime": 1754031273259
   },
-  "skipDangerousModePermissionPrompt": true
+  "skipAutoPermissionPrompt": true
 }

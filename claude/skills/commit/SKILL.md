@@ -1,9 +1,14 @@
 ---
 name: commit
 description: Fix files appropriately before committing and commit with proper granularity as needed. Use when to commit some changes.
+user-invocable: true
 ---
 
-## Instructions
+## Project-level Skill Discovery
+
+Before executing the default instructions below, check if there is another project-level skill that handles committing. If such a skill exists, use that skill's instructions instead of the default instructions below.
+
+## Default Instructions
 
 Before creating a commit, you must follow these steps:
 
