@@ -34,7 +34,14 @@ source <(just --completions zsh)
 # ──────────────── Alias ────────────────
 alias ls='ls -G'
 alias ll='ls -al'
+alias g='git'
+alias gc='git commit'
+alias gcm='git commit --message'
+alias gwd='git diff'
+alias gws='git status'
 alias tf='terraform'
+alias j='just'
+alias jc='just --choose'
 
 # ──────────────── Functions ────────────────
 function tmpdir() {
