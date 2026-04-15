@@ -4,11 +4,25 @@ description: Fix files appropriately before committing and commit with proper gr
 user-invocable: true
 ---
 
+## Arguments
+
+- `-b <branch-name>` — Create a new branch before committing. If on the default branch, create and switch to `<branch-name>` first. If already on a non-default branch, warn and skip branch creation. Branch name should follow `<type>/<short-description>` convention (e.g., `feat/add-auth`, `fix/login-crash`).
+
 ## Project-level Skill Discovery
 
 Before executing the default instructions below, check if there is another project-level skill that handles committing. If such a skill exists, use that skill's instructions instead of the default instructions below.
 
 ## Default Instructions
+
+### Branch Creation (when `-b` is specified)
+
+If the `-b <branch-name>` argument is provided:
+
+1. Run `git pull` to ensure the current branch is up to date.
+2. Run `git checkout -b <branch-name>` to create and switch to the new branch.
+3. Proceed with the commit steps below.
+
+### Commit Steps
 
 Before creating a commit, you must follow these steps:
 
