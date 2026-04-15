@@ -35,8 +35,14 @@ Run `gh pr view --json number,title,body,url` to check for an existing PR.
 
 Return the PR URL.
 
+## Writing style
+
+- **Purpose first:** Every PR description MUST start with a clear statement of why this change exists — the problem it solves or the goal it achieves.
+- **Keep it simple:** Write short, direct sentences. Avoid verbose explanations or implementation details that are obvious from the diff.
+- **Be specific:** State concrete outcomes (e.g., "Fix login crash on expired tokens") instead of vague descriptions (e.g., "Improve authentication handling").
+
 ## Conventions
 
-- **Branch:** `<type>/<short-description>` (e.g., `feat/add-auth`, `fix/login-crash`)
+- **Branch:** `<type>/<short-description>` (e.g., `feat/add-auth`, `fix/login-crash`). Branch names MUST use only ASCII alphanumeric characters, hyphens, and slashes — never include non-ASCII characters (e.g., Japanese). If the related ticket or context is in a non-ASCII language, translate or transliterate the description into English for the branch name.
 - **PR title:** `<type>: <description>`
 - **Types:** feat, fix, refactor, docs, chore, ui, test
