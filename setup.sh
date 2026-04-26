@@ -5,6 +5,7 @@ DOT_FILES=(
  'ideavimrc'
  'inputrc'
  'myclirc'
+ 'terraformrc'
  'tmux.conf'
  'vimrc'
  'zshrc'
