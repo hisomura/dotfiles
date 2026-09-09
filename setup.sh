@@ -12,15 +12,9 @@ DOT_FILES=(
  'zshenv'
 )
 
-mkdir -p ~/.claude
 mkdir -p ~/.config/ghostty
 mkdir -p ~/.config/karabiner
 mkdir -p ~/.config/mise
-
-ln -s ~/dotfiles/claude/agents ~/.claude/agents
-ln -s ~/dotfiles/claude/commands ~/.claude/commands
-ln -s ~/dotfiles/claude/skills ~/.claude/skills
-ln -s ~/dotfiles/claude/settings.json ~/.claude/settings.json
 
 ln -s ~/dotfiles/config/ghostty/config ~/.config/ghostty/config
 ln -s ~/dotfiles/config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json

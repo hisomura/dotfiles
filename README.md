@@ -8,7 +8,6 @@ Personal dotfiles repository for managing development environment. Configuration
 | --- | --- |
 | `home/` | Shell and editor config files (symlinked to `~/.<file>`) |
 | `config/` | Application settings (symlinked under `~/.config/`) |
-| `claude/` | Claude Code settings and commands |
 | `docs/` | Documentation |
 | `tmp/` | Temporary files |
 
