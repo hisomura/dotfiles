@@ -1,3 +1,0 @@
-# Keep migration backups and interrupted sync files out of version control.
-.migration-backup/
-*.dotfiles-tmp

@@ -21,7 +21,6 @@ migrating every existing skill at once.
 - `~/.apm` is a normal directory containing live APM state and downloaded packages.
 - `scripts/apm-global` copies the two metadata files into `~/.apm`, runs the standard APM command with `--global`, and copies successful results back. It does not resolve or install dependencies itself.
 - APM 0.30.0 rejects a symlinked `~/.apm` lifecycle lock path. Individual metadata symlinks also break when APM atomically replaces files, so this setup uses file synchronization.
-- The directory's `.gitignore` excludes local migration backups and temporary files left by interrupted synchronization. Normal APM runtime data lives in `~/.apm`, outside this repository.
 - Project-specific knowledge belongs in its project. Use a separate project `apm.yml` and lockfile there.
 
 Run the commands below from the dotfiles root. The wrapper always selects user scope.
