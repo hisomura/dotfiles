@@ -27,4 +27,5 @@ brew bundle
 ## Documentation
 
 - [Homebrew Packages](docs/homebrew.md)
+- [Agent Skills](docs/skills.md)
 - [Keymaps](docs/keymaps.md)

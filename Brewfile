@@ -18,6 +18,7 @@ brew "rename"
 # Editor & Development
 brew "git"
 brew "gh"
+brew "apm"
 brew "pinact"
 brew "neovim"
 brew "luarocks"
