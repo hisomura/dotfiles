@@ -1,0 +1,13 @@
+name: personal-skills
+version: 1.0.0
+
+targets:
+  - claude
+  - codex
+
+dependencies:
+  apm:
+    - git: https://github.com/anthropics/skills.git
+      path: skills/skill-creator
+      ref: main
+      targets: [claude]

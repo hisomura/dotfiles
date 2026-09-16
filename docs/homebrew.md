@@ -16,6 +16,7 @@ Homebrew packages managed by this repository. Install with `brew bundle`.
 | | rename | Batch file renaming |
 | Editor & Dev | git | Version control |
 | | gh | GitHub CLI |
+| | apm | Agent skills dependency manager |
 | | neovim | Text editor |
 | | luarocks | Lua package manager |
 | | python | Python |
